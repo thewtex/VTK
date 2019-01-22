@@ -1,3 +1,4 @@
+
 set(headers
   bignum.h
   cached-powers.h
@@ -8,6 +9,7 @@ set(headers
   ieee.h
   strtod.h
   utils.h
+  ${CMAKE_CURRENT_BINARY_DIR}/double-conversion-configure.h
   )
 
 add_library(double-conversion

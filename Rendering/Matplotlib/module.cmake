@@ -1,4 +1,4 @@
-if(ANDROID OR APPLE_IOS)
+if(ANDROID OR APPLE_IOS OR EMSCRIPTEN)
   set(gl2ps_depends)
 elseif(VTK_RENDERING_BACKEND STREQUAL "OpenGL2")
   set(gl2ps_depends vtkRenderingGL2PSOpenGL2 vtkIOExportOpenGL2)

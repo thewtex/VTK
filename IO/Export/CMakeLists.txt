@@ -1,6 +1,5 @@
 set(Module_SRCS
   vtkExporter.cxx
-  vtkGL2PSExporter.cxx
   vtkGLTFExporter.cxx
   vtkIVExporter.cxx
   vtkJSONDataSetWriter.cxx
@@ -21,6 +20,9 @@ set(Module_SRCS
   vtkX3DExporterWriter.cxx
   vtkX3DExporterXMLWriter.cxx
   )
+if(NOT EMSCRIPTEN)
+  list(APPEND Module_SRCS vtkGL2PSExporter.cxx)
+ endif()
 
 vtk_module_library(vtkIOExport ${Module_SRCS})
 include(vtkOpenGL)

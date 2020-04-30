@@ -47,6 +47,8 @@
 /* Local Prototypes */
 /********************/
 
+herr_t H5CX_set_libver_bounds(H5F_t *f);
+
 /*********************/
 /* Package Variables */
 /*********************/

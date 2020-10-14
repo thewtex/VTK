@@ -38,6 +38,10 @@ set(vtk_smp_sources)
 set(vtk_smp_headers)
 set(vtk_smp_defines)
 set(vtk_smp_libraries)
+set(vtk_threads_libraries Threads::Threads)
+if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+  set(vtk_threads_libraries)
+endif()
 include("${CMAKE_CURRENT_SOURCE_DIR}/vtkSMPSelection.cmake")
 
 # An optional dependency on memkind
@@ -515,7 +519,7 @@ endif ()
 
 vtk_module_link(VTK::CommonCore
   PUBLIC
-    Threads::Threads
+    ${vtk_threads_libraries}
     ${vtk_smp_libraries}
     ${vtk_memkind_libraries}
   PRIVATE

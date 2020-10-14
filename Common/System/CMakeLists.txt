@@ -1,5 +1,9 @@
 vtk_module_find_package(
   PACKAGE Threads)
+set(vtk_threads_libraries Threads::Threads)
+if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+  set(vtk_threads_libraries)
+endif()
 
 set(classes
   vtkClientSocket
@@ -32,4 +36,4 @@ vtk_module_add_module(VTK::CommonSystem
 vtk_module_link(VTK::CommonSystem
   PRIVATE
     $<$<PLATFORM_ID:WIN32>:wsock32>
-    Threads::Threads)
+    ${vtk_threads_libraries})
